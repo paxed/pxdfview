@@ -113,12 +113,19 @@ main(int argc, char *argv[])
 	switch (key) {
 	case KEY_RESIZE:
 	case ERR: quit = TRUE; break;
+	case KEY_EXIT:
+	case KEY_CLOSE:
+	case '\x1b':
 	case 'Q':
 	case 'q': quit = TRUE; break;
 	case KEY_CLEAR:
 	case 'r': redraw = 1; break;
+	case KEY_SHOME:
 	case KEY_HOME: offset = 0; redraw = 1; break;
+	case KEY_SEND:
 	case KEY_END: offset = n_lines-(n_lines%(LINES-1)); redraw = 1; break;
+	case KEY_SNEXT:
+	case KEY_NEXT:
 	case KEY_NPAGE:
 	case KEY_DOWN:
 	case '\n':
@@ -128,6 +135,8 @@ main(int argc, char *argv[])
 		offset += (LINES-1); redraw = 1;
 	    }
 	break;
+	case KEY_SPREVIOUS:
+        case KEY_PREVIOUS:
 	case KEY_PPAGE:
 	case KEY_UP:
 	case '<':
