@@ -63,6 +63,9 @@ main(int argc, char *argv[])
 	fname = argv[1];
     } else bail("Error: no filename given");
 
+    if (argc > 2)
+	offset = abs(atoi(argv[2]));
+
     if (COLS < 80 || LINES < 10)
 	bail("Error: your terminal is too small");
 
